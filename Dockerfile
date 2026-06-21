@@ -11,8 +11,8 @@ WORKDIR /src
 COPY . .
 
 # Restaurar y publicar
-RUN dotnet restore ApiProveedores.csproj
-RUN dotnet publish ApiProveedores.csproj -c Release -o /out
+RUN dotnet restore DemoApi.csproj
+RUN dotnet publish DemoApi.csproj -c Release -o /out
 
 # Etapa final
 FROM base AS final
@@ -22,4 +22,4 @@ ENV TZ=America/Mexico_City
 ENV ASPNETCORE_URLS=http://+:8080
 
 COPY --from=build /out . 
-ENTRYPOINT ["dotnet", "ApiProveedores.dll"]
+ENTRYPOINT ["dotnet", "DemoApi.dll"]
