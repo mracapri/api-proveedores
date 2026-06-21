@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace ApiProveedores.Models
+{
+    public class Proveedor
+    {
+        public long Id_proveedor { get; set; }
+        public string Nombre { get; set; }
+        public string Rfc { get; set; }
+        public string VendorId { get; set; }
+        public bool Estatus { get; set; }
+        public decimal? Sobrante { get; set; }
+        public decimal? PorcentajeSobrante { get; set; } = 0m;
+        public decimal? Faltante { get; set; } = 0m;
+        public decimal? PorcentajeFaltante { get; set; } = 0m;
+        public bool AplicarTolerancia { get; set; }
+        public int? IdCategoria { get; set; } = 0;
+        public bool AcreedorSinXml { get; set; }
+        public bool AplicarToleranciaCategoria { get; set; }
+        public string? EmailProveedor { get; set; }
+        public string? DocFiscal { get; set; }
+        public bool Factura { get; set; }
+        public bool Recepcion { get; set; }
+        public string? Origen { get; set; }
+        public string? RazonSocial { get; set; }
+        public string? EntityId { get; set; }
+
+        public ICollection<ProveedorEmpresa> ProveedorEmpresa { get; set; } = new List<ProveedorEmpresa>();
+        public ICollection<ProveedorDocumento> ProveedorDocumento { get; set; } = new List<ProveedorDocumento>();
+        public ICollection<Usuario> Usuarios { get; set; }
+
+    }
+
+}
