@@ -6,6 +6,7 @@ namespace ApiProveedores.Parser
     {
         public static (string projectId, string locationId, string keyRingId, string keyId) ParseKeyResource(string keyResource)
         {
+            Console.WriteLine($"Parsing KMS key resource: {keyResource}");
             var parts = keyResource.Split('/');
 
             if (parts.Length != 8 ||
