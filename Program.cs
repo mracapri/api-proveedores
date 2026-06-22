@@ -100,8 +100,8 @@ builder.Services.AddMemoryCache();
 
 
 //topicos
-var topicPnj = Environment.GetEnvironmentVariable("PROVEEDORES_API_NOTIFICADOR_COLA")
-              ?? throw new Exception("PROVEEDORES_API_NOTIFICADOR_COLA no definida");
+var topicPnj = Environment.GetEnvironmentVariable("DEMO_API_NOTIFICADOR_COLA")
+              ?? throw new Exception("DEMO_API_NOTIFICADOR_COLA no definida");
 builder.Services.AddScoped<PublisherPnjService>(_ =>
     new PublisherPnjService(topicPnj));
 
