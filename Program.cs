@@ -215,7 +215,7 @@ builder.Services.AddSwaggerGen(options =>
 
 var corsOrigins = new List<string>
 {
-    "https://portalproveedores.sandbox-desa-depomarti.com"
+    "https://spa-demo-745648286174.us-central1.run.app"
 };
 
 if (builder.Environment.IsDevelopment())
