@@ -19,8 +19,8 @@ steps:
     args:
       - '-c'
       - |
-        gcloud run deploy proveedores-api-core \
-          --image gcr.io/$PROJECT_ID/portal-proveedores-api-core \
+        gcloud run deploy demo-api-core \
+          --image gcr.io/$PROJECT_ID/demo-api-core \
           --platform managed \
           --region us-central1 \
           --no-allow-unauthenticated \
@@ -29,7 +29,7 @@ steps:
           --set-secrets "DEMO_API_CORE_DB_HOST=DEMO_API_CORE_DB_HOST:latest,DEMO_API_CORE_DB_NAME=DEMO_API_CORE_DB_NAME:latest,DEMO_API_CORE_DB_PASSWORD=DEMO_API_CORE_DB_PASSWORD:latest,DEMO_API_CORE_DB_PORT=DEMO_API_CORE_DB_PORT:latest,DEMO_API_CORE_DB_USER=DEMO_API_CORE_DB_USER:latest,DEMO_API_NOTIFICADOR_COLA=DEMO_API_NOTIFICADOR_COLA:latest,DEMO_API_CORE_LLAVE_CIFRADO=DEMO_API_CORE_LLAVE_CIFRADO:latest, DEMO_API_CORE_JWT_SECRET_KEY=DEMO_API_CORE_JWT_SECRET_KEY:latest"
 
 images:
-  - 'gcr.io/$PROJECT_ID/portal-proveedores-api-core'
+  - 'gcr.io/$PROJECT_ID/demo-api-core'
 
 options:
   logging: CLOUD_LOGGING_ONLY
