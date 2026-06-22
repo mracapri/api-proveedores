@@ -36,7 +36,7 @@ namespace ApiProveedores.Services
 
         public async Task<string> GenerarJwt(Usuario usuario)
         {
-            var envSecret = Environment.GetEnvironmentVariable("PROVEEDORES_API_CORE_JWT_SECRET_KEY");
+            var envSecret = Environment.GetEnvironmentVariable("DEMO_API_CORE_JWT_SECRET_KEY");
             _logger.LogInformation(
             "JWT Secret encontrada: {Existe}, longitud: {Longitud}",
             !string.IsNullOrWhiteSpace(envSecret),

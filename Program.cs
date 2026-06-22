@@ -22,11 +22,11 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var dbHost = Environment.GetEnvironmentVariable("PROVEEDORES_API_CORE_DB_HOST");
-var dbName = Environment.GetEnvironmentVariable("PROVEEDORES_API_CORE_DB_NAME");
-var dbUser = Environment.GetEnvironmentVariable("PROVEEDORES_API_CORE_DB_USER");
-var dbPass = Environment.GetEnvironmentVariable("PROVEEDORES_API_CORE_DB_PASSWORD");
-var dbPort = Environment.GetEnvironmentVariable("PROVEEDORES_API_CORE_DB_PORT");
+var dbHost = Environment.GetEnvironmentVariable("DEMO_API_CORE_DB_HOST");
+var dbName = Environment.GetEnvironmentVariable("DEMO_API_CORE_DB_NAME");
+var dbUser = Environment.GetEnvironmentVariable("DEMO_API_CORE_DB_USER");
+var dbPass = Environment.GetEnvironmentVariable("DEMO_API_CORE_DB_PASSWORD");
+var dbPort = Environment.GetEnvironmentVariable("DEMO_API_CORE_DB_PORT");
 
 
 
@@ -42,7 +42,7 @@ builder.Logging.AddSimpleConsole();
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>() ?? new JwtSettings();
 
-var envSecret = Environment.GetEnvironmentVariable("PROVEEDORES_API_CORE_JWT_SECRET_KEY");
+var envSecret = Environment.GetEnvironmentVariable("DEMO_API_CORE_JWT_SECRET_KEY");
 if (!string.IsNullOrWhiteSpace(envSecret))
 {
     jwtSettings.SecretKey = envSecret;
@@ -83,7 +83,7 @@ builder.Services.AddAuthentication("Bearer")
 
 builder.Services.AddSingleton<GoogleKmsHelper>(sp =>
 {
-    var keyResource = builder.Configuration["PROVEEDORES_API_CORE_LLAVE_CIFRADO"];
+    var keyResource = builder.Configuration["DEMO_API_CORE_LLAVE_CIFRADO"];
 
     var (projectId, locationId, keyRingId, keyId) = KmsKeyParser.ParseKeyResource(keyResource);
     return new GoogleKmsHelper(projectId, locationId, keyRingId, keyId);
