@@ -95,6 +95,13 @@ builder.Services.AddDbContext<PortalDbContext>(options =>
     options.UseNpgsql($"Host={dbHost};Port={dbPort};Database={dbName};Username={dbUser};Password={dbPass}")
 );
 
+Console.WriteLine("=== PostgreSQL Config ===");
+Console.WriteLine($"Host: {dbHost}");
+Console.WriteLine($"Port: {dbPort}");
+Console.WriteLine($"Database: {dbName}");
+Console.WriteLine($"User: {dbUser}");
+Console.WriteLine("=========================");
+
 // configuracion de cache
 builder.Services.AddMemoryCache();
 
